@@ -12,7 +12,7 @@ defineProps<Props>();
       <slot name="heading"></slot>
     </section>
 
-    <div class="divider dark:before:bg-base-100/20 dark:after:bg-base-100/20"></div>
+    <Divider />
 
     <div v-if="loading" class="w-full flex justify-center h-[70vh] items-center">
       <Icon name="icon-park-outline:loading-four" size="48" class="animate-spin" />

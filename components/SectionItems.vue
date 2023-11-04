@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import type { Item } from '@/types/Menu';
-
 const { items, oneColumn = false } = defineProps<{
   items: Item[];
   oneColumn: boolean;
 }>();
-
-const dialog = ref<HTMLDialogElement>();
-function openDialog(): void {
-  dialog.value?.showModal();
-}
 </script>
 
 <template>

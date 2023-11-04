@@ -1,8 +1,6 @@
-import type { SurveyQuestion } from '@/types/Survey';
-
 export const waitersList = ['No lo sé', 'Diego Vargas', 'Giovanny Gómez', 'Christian Pérez'];
 
-export const surveyQuestions: SurveyQuestion[] = [
+export const surveyQuestions = [
   {
     id: 1,
     text: 'La bienvenida por parte de nuestro mesero fue:',

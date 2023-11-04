@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Section } from '@/types/Menu';
-
 const { section } = defineProps<{
   section: Section;
 }>();

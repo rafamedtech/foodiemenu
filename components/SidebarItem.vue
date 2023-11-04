@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { RouteLocationRaw } from '#vue-router';
+import type { RouteLocationRaw } from '#vue-router';
 
-interface Props {
+defineProps<{
   href: RouteLocationRaw | undefined;
-  icon: String;
-  title: String;
-}
-
-defineProps<Props>();
+  icon: string;
+  title: string;
+}>();
 </script>
 
 <template>

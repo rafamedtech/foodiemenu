@@ -31,5 +31,6 @@ const handleInputChange = (event: Event) => (event.target as HTMLInputElement).v
         </div>
       </fieldset>
     </section>
+    <Divider class="mt-12" />
   </div>
 </template>

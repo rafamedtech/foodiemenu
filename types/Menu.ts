@@ -1,4 +1,4 @@
-export type Category = {
+type Category = {
   _id: string;
   _createdAt: Date;
   name: string;
@@ -8,7 +8,7 @@ export type Category = {
   sections: Section[];
 };
 
-export type Section = {
+type Section = {
   _id: string;
   _createdAt: Date;
   name: string;
@@ -18,7 +18,7 @@ export type Section = {
   items: Item[];
 };
 
-export type Item = {
+type Item = {
   _id: string;
   _createdAt: Date;
   name: string;
@@ -29,7 +29,7 @@ export type Item = {
   variants?: Variant[];
 };
 
-export type Variant = {
+type Variant = {
   _id: string;
   _createdAt: Date;
   name: string;

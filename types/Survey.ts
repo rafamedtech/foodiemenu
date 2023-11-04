@@ -1,5 +1,11 @@
-export type SurveyQuestion = {
-  id: number;
-  text: string;
-  options: string[];
+type Question = {
+  question: string;
+  answer?: string | null;
 };
+
+interface SurveyData {
+  name: string;
+  email: string;
+  waiter: string;
+  questions: Question[];
+}
