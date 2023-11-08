@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Category } from '@/types/Menu';
-
 const { category } = defineProps<{
   category: Category | null;
 }>();
@@ -9,7 +7,7 @@ const { category } = defineProps<{
 <template>
   <NuxtLink
     :to="`/menu/${category?.slug}`"
-    class="card w-80 md:w-[30rem] mx-auto relative h-[30rem] md:h-[20rem] md:mb-20 shadow-xl group"
+    class="card w-full lg:w-[30rem] mx-auto relative h-[35rem] lg:h-[20rem] lg:mb-12 shadow-xl group"
   >
     <figure class="h-full w-full overflow-hidden absolute rounded-2xl z-0">
       <img

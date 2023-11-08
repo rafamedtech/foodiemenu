@@ -9,7 +9,7 @@ const { name, description, cover } = event;
 
 <template>
   <div
-    class="flex-col lg:px-0 group w-80 md:w-[30rem] mx-auto relative h-[40rem] md:h-[20rem] md:mb-20 shadow-xl group"
+    class="flex-col lg:px-0 group w-full md:mx-auto md:w-[22rem] relative h-[40rem] md:mb-20 shadow-xl group"
   >
     <img
       class="rounded-2xl h-full w-full absolute md:mx-auto object-cover z-10 dark:brightness-50 group-hover:brightness-[.25] transition-all"

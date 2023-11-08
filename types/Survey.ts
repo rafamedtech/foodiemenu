@@ -1,6 +1,7 @@
 type Question = {
-  question: string;
-  answer?: string | null;
+  id?: number;
+  text: string;
+  rating?: number | null;
 };
 
 interface SurveyData {
@@ -8,4 +9,5 @@ interface SurveyData {
   email: string;
   waiter: string;
   questions: Question[];
+  comments: string;
 }

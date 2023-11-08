@@ -9,12 +9,12 @@ const handleInputChange = (event: Event) => (event.target as HTMLInputElement).v
 
 <template>
   <div class="form-control gap-2">
-    <label for="">{{ label }}</label>
+    <label for="" class="dark:text-base-100">{{ label }}</label>
     <select
       v-bind="$attrs"
       @input="$emit('update:modelValue', handleInputChange($event))"
-      id="mesero"
-      class="select select-bordered w-full bg-white border-2 border-base-200 transition-all focus:ring focus:ring-primary dark:bg-dark-strong dark:border-base-100/10"
+      id=""
+      class="select select-bordered w-full lg:max-w-xs bg-white border-2 border-base-200 transition-all focus:ring focus:ring-primary dark:bg-dark-strong dark:border-base-100/10 dark:text-base-100"
     >
       <option v-for="item in items" :value="item" :key="item">{{ item }}</option>
     </select>

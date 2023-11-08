@@ -29,7 +29,7 @@ const { items, oneColumn = false } = defineProps<{
         <div v-if="item.variants">
           <div v-for="variant in item.variants" :key="variant._id" class="flex justify-between">
             <p
-              class="text-dark-strong dark:text-base-100"
+              class="dark:text-base-100"
               :class="{ 'text-accent dark:text-primary': item.description }"
             >
               {{ variant.name }}

@@ -20,7 +20,7 @@ onMounted(() => {
 
     <template #content>
       <section class="w-full">
-        <div class="container rounded-box lg:p-4 pb-8 grid gap-10 lg:grid-cols-2 max-w-4xl">
+        <div class="container rounded-box lg:p-4 pb-8 grid gap-8 md:gap-2 md:grid-cols-2 max-w-4xl">
           <EventCard v-for="event in events" :key="event._id" :event="event" />
         </div>
       </section>

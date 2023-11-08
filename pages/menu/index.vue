@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { allCategories } from '@/sanity/queries';
-import type { Category } from '@/types/Menu';
 
 const store = useMainStore();
 const { isLoading } = storeToRefs(store);
@@ -20,7 +19,7 @@ onMounted(() => {
 
     <template #content>
       <section>
-        <section class="grid md:grid-cols-2 gap-8 lg:px-2">
+        <section class="grid md:grid-cols-2 gap-8 md:gap-8 md:px-2">
           <CategoryCard v-for="category in categories" :key="category._id" :category="category" />
         </section>
       </section>

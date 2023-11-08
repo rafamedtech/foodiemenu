@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useMainStore = defineStore('main', () => {
   const isLoading = ref(true);
+  const openModal = ref(false);
 
-  return { isLoading };
+  return { isLoading, openModal };
 });

@@ -14,7 +14,7 @@ const darkModeIcon = computed(() =>
 <template>
   <button
     class="w-fit block cursor-pointer text-dark-strong dark:text-base-100 gap-2 py-2"
-    :class="{ 'hidden md:block absolute top-10 right-16 z-[999]': !mobile }"
+    :class="{ 'hidden lg:block absolute top-10 right-16 z-[999]': !mobile }"
     @click="toggleDark()"
   >
     <Icon :name="darkModeIcon" size="32" />

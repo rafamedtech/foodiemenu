@@ -4,7 +4,7 @@ import { restInfo } from '@/utils/restInfo';
 
 const isLoading = ref(true);
 
-const { name, address, phone, schedule } = restInfo;
+const { name, address, phone, schedule, socials } = restInfo;
 
 onMounted(() => {
   isLoading.value = false;
@@ -14,14 +14,14 @@ onMounted(() => {
 <template>
   <MainSection :loading="isLoading">
     <template #heading>
-      <AppHeading title="Información del restaurant" :cover="mainCover" />
+      <AppHeading title="Información del restaurant" />
     </template>
 
     <template #content>
-      <section class="text-dark-strong dark:text-base-100">
-        <section>
-          <h2 class="text-accent dark:text-primary text-4xl mb-2">{{ name }}</h2>
-          <section class="mb-2 text-accent dark:text-primary">
+      <section class="text-dark-strong dark:text-base-100 md:mt-20 lg:mt-4">
+        <section class="md:w-1/2 md:mx-auto">
+          <AppHeading :title="name" :cover="mainCover" />
+          <section class="py-8 text-accent dark:text-primary">
             <h3>
               Dirección:
               <span class="block text-dark-strong dark:text-base-100">{{ address }}</span>
@@ -32,7 +32,7 @@ onMounted(() => {
           </section>
         </section>
 
-        <section class="mt-4">
+        <section class="my-4 md:w-1/2 md:mx-auto">
           <h3 class="text-accent dark:text-primary text-xl">Horario:</h3>
           <section
             v-for="{ id, name, time } in schedule"
@@ -42,6 +42,19 @@ onMounted(() => {
             <h4>{{ name }}</h4>
             <span>{{ time }}</span>
           </section>
+        </section>
+
+        <section class="flex justify-center gap-4 mt-8">
+          <NuxtLink
+            v-for="{ id, name, icon, url } in socials"
+            :key="id"
+            :to="url"
+            target="_blank"
+            class="flex flex-col items-center"
+          >
+            <Icon :name="icon" size="32" />
+            <span>{{ name }}</span>
+          </NuxtLink>
         </section>
       </section>
     </template>

@@ -18,7 +18,7 @@ defineProps<Props>();
       <Icon name="icon-park-outline:loading-four" size="48" class="animate-spin" />
     </div>
 
-    <section class="pb-24 md:pb-8 md:pt-8" v-else>
+    <section class="pb-24 lg:py-8" v-else>
       <slot name="content"></slot>
     </section>
   </section>
