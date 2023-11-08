@@ -7,7 +7,7 @@ const { category } = defineProps<{
 <template>
   <NuxtLink
     :to="`/menu/${category?.slug}`"
-    class="card w-full lg:w-[30rem] mx-auto relative h-[35rem] lg:h-[20rem] lg:mb-12 shadow-xl group"
+    class="card w-full lg:w-[30rem] mx-auto relative h-52 lg:h-[20rem] lg:mb-12 shadow-xl group"
   >
     <figure class="h-full w-full overflow-hidden absolute rounded-2xl z-0">
       <img
