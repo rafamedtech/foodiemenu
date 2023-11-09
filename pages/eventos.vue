@@ -7,23 +7,38 @@ const { isLoading } = storeToRefs(store);
 
 const { data: events } = useSanityQuery<Event[]>(allEvents);
 
+const { myAnimations } = useAnimations();
+
 onMounted(() => {
   isLoading.value = false;
+  // myAnimations();
+});
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
 });
 </script>
 
 <template>
-  <MainSection :loading="isLoading">
-    <template #heading>
-      <AppHeading title="Eventos" description="Esta es la descripción de los eventos" />
-    </template>
+  <main>
+    <MainSection :loading="isLoading">
+      <template #heading>
+        <AppHeading
+          title="Eventos"
+          description="Esta es la descripción de los eventos"
+          class="title-heading"
+        />
+      </template>
 
-    <template #content>
-      <section class="w-full">
-        <div class="container rounded-box lg:p-4 pb-8 grid gap-8 md:gap-2 md:grid-cols-2 max-w-4xl">
+      <template #content>
+        <section
+          class="container rounded-box lg:p-4 pb-8 grid gap-8 md:gap-2 md:grid-cols-2 max-w-4xl content"
+        >
           <EventCard v-for="event in events" :key="event._id" :event="event" />
-        </div>
-      </section>
-    </template>
-  </MainSection>
+        </section>
+      </template>
+    </MainSection>
+  </main>
 </template>

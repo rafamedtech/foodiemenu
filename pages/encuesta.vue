@@ -2,19 +2,33 @@
 const store = useMainStore();
 const { isLoading } = storeToRefs(store);
 
-onMounted(() => (isLoading.value = false));
+const { myAnimations } = useAnimations();
+
+onMounted(() => {
+  isLoading.value = false;
+  // myAnimations();
+});
+
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+});
 </script>
 
 <template>
-  <MainSection :loading="isLoading">
-    <template #heading>
-      <AppHeading title="Encuesta" description="Descripcion de encuesta" />
-    </template>
+  <main>
+    <MainSection :loading="isLoading">
+      <template #heading>
+        <AppHeading title="Encuesta" description="Descripcion de encuesta" class="title-heading" />
+      </template>
 
-    <template #content>
-      <section>
-        <SurveyForm />
-      </section>
-    </template>
-  </MainSection>
+      <template #content>
+        <section class="content">
+          <SurveyForm />
+        </section>
+      </template>
+    </MainSection>
+  </main>
 </template>

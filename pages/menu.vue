@@ -1,3 +1,14 @@
+<script setup lang="ts">
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+});
+</script>
+
 <template>
-  <NuxtPage />
+  <main>
+    <NuxtPage />
+  </main>
 </template>
