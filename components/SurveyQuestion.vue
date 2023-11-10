@@ -17,23 +17,8 @@ const handleInputChange = (event: Event) => parseInt((event.target as HTMLInputE
       <span class="font-bold dark:text-base-100"> {{ label }} </span>
       <!-- <span class="font-bold text-accent dark:text-primary"> {{ label }} </span> -->
     </label>
-    <!-- <section class="flex justify-center mt-4 mb-2">
-      <div class="rating bg-base-100 dark:bg-dark-strong rounded-lg p-4 rating-lg gap-4">
-        <input
-          v-bind="$attrs"
-          v-for="(option, idx) in ratings"
-          :key="option"
-          type="radio"
-          :name="`rating-${index + 1}`"
-          :value="option"
-          @input="$emit('update:modelValue', handleInputChange($event))"
-          class="mask mask-star-2"
-        />
-      </div>
 
-    </section> -->
     <section class="mt-4">
-      <!-- <label for="">Calificación</label> -->
       <input
         type="range"
         min="1"

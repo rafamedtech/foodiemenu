@@ -4,5 +4,7 @@ export const useMainStore = defineStore('main', () => {
   const isLoading = ref(true);
   const openModal = ref(false);
 
-  return { isLoading, openModal };
+  const showScrollToTop = ref(false);
+
+  return { isLoading, openModal, showScrollToTop };
 });

@@ -7,7 +7,7 @@ const links: SidebarLink[] = sidebarLinks;
 
 <template>
   <ul
-    class="flex w-1/6 fixed flex-col min-h-screen bg-base-100 border-r dark:border-base-100/10 dark:bg-dark-strong justify-between gap-2 px-6"
+    class="flex w-1/6 fixed flex-col min-h-screen bg-[#FEFEFE] border-r dark:border-base-100/10 dark:bg-dark-strong justify-between gap-2 px-6"
   >
     <li class="lg:pt-4 flex flex-col gap-0">
       <Logo />

@@ -9,7 +9,7 @@
     <div class="lg:w-5/6 w-full transition-all">
       <MobileTopbar />
       <div
-        class="bg-[#FEFEFE] dark:bg-dark-medium transition-colors lg:relative px-4 lg:px-12 min-h-screen"
+        class="bg-base-100 dark:bg-dark-medium transition-colors lg:relative px-4 lg:px-12 min-h-screen"
       >
         <DarkLightBtn />
 
