@@ -15,7 +15,7 @@ function closeModal() {
     <dialog class="card w-full max-w-lg bg-base-100 dark:bg-dark-strong shadow-xl">
       <div class="card-body">
         <h2 class="card-title text-accent dark:text-primary">¡Gracias por tus comentarios!</h2>
-        <p class="dark:text-base-100">Haremos lo posible por atenderle aún mejor la próxima vez.</p>
+        <p class="dark:text-base-100">Haremos lo posible por atenderte aún mejor la próxima vez.</p>
         <div class="card-actions justify-end">
           <BaseButton type="primary" @click="closeModal">Ir al menú</BaseButton>
         </div>

@@ -6,11 +6,8 @@ const { isLoading } = storeToRefs(store);
 
 const { data: categories } = useSanityQuery<Category[]>(allCategories);
 
-const { myAnimations } = useAnimations();
-
 onMounted(() => {
   isLoading.value = false;
-  // myAnimations();
 });
 
 definePageMeta({
@@ -41,7 +38,7 @@ definePageMeta({
               :to="`/menu/${category?.slug}`"
               :class="`array-${index}`"
             >
-              <AppHeading :title="category.name" :cover="category.cover" />
+              <BaseCard :title="category.name" :cover="category.cover" />
             </NuxtLink>
 
             <!-- <CategoryCard v-for="category in categories" :key="category._id" :category="category" /> -->

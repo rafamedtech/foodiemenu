@@ -34,7 +34,7 @@ definePageMeta({
 
       <template #content>
         <section
-          class="container rounded-box lg:p-4 pb-8 grid gap-8 md:gap-2 md:grid-cols-2 max-w-4xl content"
+          class="container rounded-box lg:p-4 pb-8 grid gap-8 md:gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-full content"
         >
           <EventCard v-for="event in events" :key="event._id" :event="event" />
         </section>

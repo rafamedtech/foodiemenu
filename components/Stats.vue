@@ -2,7 +2,7 @@
 
 <template>
   <div
-    class="stats border dark:border-base-100/10 shadow-pinterest max-w-full grid-cols-3 dark:bg-dark-strong dark:text-base-100"
+    class="stats border dark:border-base-100/10 shadow-pinterest max-w-full grid-cols-3 bg-[#FEFEFE] dark:bg-dark-strong dark:text-base-100"
   >
     <div class="stat dark:border-base-100/20">
       <div class="stat-title text-accent dark:text-primary">Total</div>

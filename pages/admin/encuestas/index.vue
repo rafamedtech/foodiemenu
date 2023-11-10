@@ -22,6 +22,13 @@ onMounted(() => {
   questions.value = surveyQuestions;
   isLoading.value = false;
 });
+
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+});
 </script>
 
 <template>
@@ -55,6 +62,7 @@ onMounted(() => {
               min="0"
               max="50"
               :value="(index + 1) * 10"
+              disabled
               class="range range-accent dark:range-primary"
             />
             <span class="text-2xl dark:text-base-100">{{ index + 1 }}</span>

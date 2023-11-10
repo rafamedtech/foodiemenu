@@ -18,6 +18,13 @@ onMounted(() => {
   questions.value = surveyQuestions;
   isLoading.value = false;
 });
+
+definePageMeta({
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+});
 </script>
 
 <template>
