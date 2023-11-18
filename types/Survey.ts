@@ -8,6 +8,6 @@ interface SurveyData {
   name: string;
   email: string;
   waiter: string;
-  questions: Question[];
+  questions?: Question[] | null;
   comments: string;
 }

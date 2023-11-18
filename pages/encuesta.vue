@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { allQuestions } from '@/sanity/queries';
+
+const { data: questions } = useSanityQuery<Question[]>(allQuestions);
+
 const store = useMainStore();
 const { isLoading } = storeToRefs(store);
 
-const { myAnimations } = useAnimations();
-
 onMounted(() => {
   isLoading.value = false;
-  // myAnimations();
 });
 
 definePageMeta({
@@ -26,7 +27,7 @@ definePageMeta({
 
       <template #content>
         <section class="content">
-          <SurveyForm />
+          <SurveyForm :questions="questions" />
         </section>
       </template>
     </MainSection>

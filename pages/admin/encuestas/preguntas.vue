@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { surveyQuestions } from '@/utils/surveyInfo';
+import { allQuestions } from '@/sanity/queries';
 const isLoading = ref(true);
 const loadingBtn = ref(false);
+const supabase = useSupabaseClient();
+const { $toast } = useNuxtApp();
 
-const questions = ref<Question[]>([]);
+// const questions = ref<Question[]>([]);
+
+const { data: questions } = useSanityQuery<Evento[]>(allQuestions);
+
+// const { data: questionsData } = await useAsyncData('questions', async () => {
+//   const { data } = await supabase.from('questions').select('*');
+//   return data;
+// });
 
 function cancelChanges() {
   loadingBtn.value = true;
@@ -14,9 +23,9 @@ function cancelChanges() {
   }, 2000);
 }
 
-onMounted(() => {
-  questions.value = surveyQuestions;
+onMounted(async () => {
   isLoading.value = false;
+  console.log(questions.value);
 });
 
 definePageMeta({
@@ -37,7 +46,7 @@ definePageMeta({
         <BaseInput isrequired v-for="question in questions" v-model="question.text" />
       </section>
       <Divider />
-      <section class="flex gap-4 justify-end">
+      <section class="gap-4 flex justify-end">
         <NuxtLink to="/admin/encuestas"><BaseButton>Cancelar</BaseButton></NuxtLink>
         <BaseButton :loading="loadingBtn" type="primary" @click="cancelChanges"
           >Guardar cambios</BaseButton

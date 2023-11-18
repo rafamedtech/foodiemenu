@@ -1,4 +1,4 @@
-export type Event = {
+type Evento = {
   _id: string;
   name: string;
   description?: string;

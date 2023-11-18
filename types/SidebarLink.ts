@@ -1,4 +1,4 @@
-export type SidebarLink = {
+type SidebarLink = {
   title: string;
   icon: string;
   href: string;

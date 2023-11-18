@@ -48,3 +48,8 @@ export const allEvents = groq`
   startDate,
   endDate
 }`;
+export const allQuestions = groq`
+*[_type == 'question']{
+  text,
+  rating
+}`;

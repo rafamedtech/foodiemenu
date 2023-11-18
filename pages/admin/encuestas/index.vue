@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { allQuestions } from '@/sanity/queries';
+
 const isLoading = ref(true);
 
-const questions = ref<Question[]>([]);
+// const questions = ref<Question[]>([]);
+const { data: questions } = useSanityQuery<Question[]>(allQuestions);
 
 const months = ref([
   'Enero',
@@ -19,7 +22,6 @@ const months = ref([
 ]);
 
 onMounted(() => {
-  questions.value = surveyQuestions;
   isLoading.value = false;
 });
 

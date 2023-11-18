@@ -1,0 +1,30 @@
+datasource db {
+    url      = env("DATABASE_URL")
+    provider = "postgresql"
+}
+
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "darwin-arm64"]
+}
+
+model Survey {
+    id        String     @id @default(uuid())
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    name      String
+    email     String
+    waiter    String
+    questions Question[]
+    comments  String
+}
+
+model Question {
+    id        String   @id @default(uuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    text      String
+    rating    Int
+    Survey    Survey   @relation(fields: [surveyId], references: [id])
+    surveyId  String
+}

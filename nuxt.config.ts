@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@hypernym/nuxt-gsap',
+    "@nuxtjs/supabase"
   ],
   css: ['@/assets/css/tailwind.css'],
 

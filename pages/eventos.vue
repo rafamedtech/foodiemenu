@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { allEvents } from '@/sanity/queries';
-import type { Event } from '@/types/Event';
 
 const store = useMainStore();
 const { isLoading } = storeToRefs(store);
 
-const { data: events } = useSanityQuery<Event[]>(allEvents);
+const { data: events } = useSanityQuery<Evento[]>(allEvents);
 
 const { myAnimations } = useAnimations();
 

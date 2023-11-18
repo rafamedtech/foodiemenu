@@ -4,13 +4,10 @@ import { restInfo } from '@/utils/restInfo';
 
 const isLoading = ref(true);
 
-const { name, address, phone, schedule, socials } = restInfo;
-
-const { myAnimations } = useAnimations();
+const { name, description, address, phone, schedule, socials } = restInfo;
 
 onMounted(() => {
   isLoading.value = false;
-  // myAnimations();
 });
 
 definePageMeta({
@@ -34,7 +31,12 @@ definePageMeta({
           :class="{ content: isLoading }"
         >
           <section class="md:w-1/2 md:mx-auto">
-            <AppHeading :title="name" :cover="mainCover" class="title-heading" />
+            <AppHeading
+              :title="name"
+              :description="description"
+              :cover="mainCover"
+              class="title-heading"
+            />
             <section class="py-8 text-accent dark:text-primary">
               <h3>
                 Dirección:

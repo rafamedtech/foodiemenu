@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { sidebarLinks } from '@/utils/sidebarLinks';
-import type { SidebarLink } from '@/types/SidebarLink';
 
 const links: SidebarLink[] = sidebarLinks;
 </script>

@@ -1,6 +1,15 @@
+<script setup lang="ts">
+import { restInfo } from '@/utils/restInfo';
+
+const { name, description, icon } = restInfo;
+</script>
+
 <template>
   <div class="flex items-center gap-2 rounded-lg">
-    <Icon name="ph:book-open-text" class="text-accent dark:text-primary" size="40" />
-    <span class="dark:text-base-100 text-2xl italic">FoodieMenu</span>
+    <Icon :name="icon" class="text-accent dark:text-primary" size="40" />
+    <div class="dark:text-base-100 text-2xl italic flex flex-col items-start">
+      <span>{{ name }}</span>
+      <span class="text-lg">{{ description }}</span>
+    </div>
   </div>
 </template>
