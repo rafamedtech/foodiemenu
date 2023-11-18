@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { waitersList } from '@/utils/surveyInfo';
-import { useSurvey } from '@/composables/useSurvey';
 
 const { questions } = defineProps<{
   questions: Question[];
@@ -20,9 +19,6 @@ const surveyData = reactive<SurveyData>({
 const isLoading = ref(false);
 
 async function sendSurvey(survey: SurveyData) {
-  // sessionStorage.removeItem('/api/invoices');
-  // sessionStorage.setItem('/api/invoices', JSON.stringify(null));
-
   try {
     await $fetch(`/api/survey`, {
       method: 'POST',
@@ -43,7 +39,6 @@ function formSubmit() {
   setTimeout(() => {
     isLoading.value = false;
     openModal.value = true;
-    // console.log(surveyData);
   }, 2000);
 }
 </script>

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     '@hypernym/nuxt-gsap',
-    "@nuxtjs/supabase"
+    '@nuxtjs/supabase',
   ],
   css: ['@/assets/css/tailwind.css'],
 
@@ -19,5 +19,9 @@ export default defineNuxtConfig({
 
   pinia: {
     storesDirs: ['./stores/**'],
+  },
+
+  supabase: {
+    redirect: false,
   },
 });
