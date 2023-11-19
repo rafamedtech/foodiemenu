@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { allQuestions } from '@/sanity/queries';
+const { $toast } = useNuxtApp();
 
 const isLoading = ref(true);
 
 // const questions = ref<Question[]>([]);
 const { data: questions } = useSanityQuery<Question[]>(allQuestions);
+
+const { data: surveys, error } = await useFetch<Survey[]>('/api/surveys');
+if (error.value) {
+  $toast(error);
+}
+// console.log(surveys.value);
 
 const months = ref([
   'Enero',
@@ -44,7 +51,7 @@ definePageMeta({
     <template #content>
       <section class="flex flex-col lg:items-center pb-8 md:flex-row w-full justify-between">
         <BaseSelect label="Selecciona un mes" :items="months" class="mb-4" />
-        <Stats />
+        <Stats :surveys="surveys" />
       </section>
 
       <Divider />

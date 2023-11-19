@@ -4,10 +4,11 @@ type Question = {
   rating?: number | null;
 };
 
-interface SurveyData {
+interface Survey {
   name: string;
   email: string;
   waiter: string;
   questions?: Question[] | null;
   comments: string;
+  new: boolean;
 }

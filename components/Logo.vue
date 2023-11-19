@@ -7,9 +7,9 @@ const { name, description, icon } = restInfo;
 <template>
   <div class="flex items-center gap-2 rounded-lg">
     <Icon :name="icon" class="text-accent dark:text-primary" size="40" />
-    <div class="dark:text-base-100 text-2xl italic flex flex-col items-start">
+    <div class="text-base-100 text-2xl italic flex flex-col items-start">
       <span>{{ name }}</span>
-      <span class="text-lg">{{ description }}</span>
+      <span class="text-lg lg:text-sm">{{ description }}</span>
     </div>
   </div>
 </template>

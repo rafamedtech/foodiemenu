@@ -13,10 +13,11 @@ const darkModeIcon = computed(() =>
 
 <template>
   <button
-    class="w-fit block cursor-pointer text-dark-strong dark:text-base-100 gap-2 py-2"
-    :class="{ 'hidden lg:block absolute top-10 right-16 z-[999]': !mobile }"
+    class="w-fit cursor-pointer text-base-100 py-2"
+    :class="{ 'hidden lg:flex gap-2  z-[999]': !mobile }"
     @click="toggleDark()"
   >
-    <Icon :name="darkModeIcon" size="32" />
+    <Icon :name="darkModeIcon" :size="mobile ? '32' : '24'" />
+    <span v-if="!mobile" class="text-sm">{{ isDark ? 'Light' : 'Dark' }} Mode</span>
   </button>
 </template>

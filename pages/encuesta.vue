@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { allQuestions } from '@/sanity/queries';
-
-const { data: questions } = useSanityQuery<Question[]>(allQuestions);
-
 const store = useMainStore();
 const { isLoading } = storeToRefs(store);
 
 onMounted(() => {
   isLoading.value = false;
 });
+
+const { getQuestions } = store;
+
+getQuestions();
 
 definePageMeta({
   pageTransition: {
@@ -27,7 +27,7 @@ definePageMeta({
 
       <template #content>
         <section class="content">
-          <SurveyForm :questions="questions" />
+          <SurveyForm />
         </section>
       </template>
     </MainSection>

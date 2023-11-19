@@ -17,6 +17,7 @@ model Survey {
     waiter    String
     questions Question[]
     comments  String
+    new       Boolean
 }
 
 model Question {

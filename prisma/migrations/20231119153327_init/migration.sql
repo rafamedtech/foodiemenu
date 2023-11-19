@@ -7,6 +7,7 @@ CREATE TABLE "Survey" (
     "email" TEXT NOT NULL,
     "waiter" TEXT NOT NULL,
     "comments" TEXT NOT NULL,
+    "new" BOOLEAN NOT NULL,
 
     CONSTRAINT "Survey_pkey" PRIMARY KEY ("id")
 );

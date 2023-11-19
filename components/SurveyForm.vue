@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { waitersList } from '@/utils/surveyInfo';
 
-const { questions } = defineProps<{
-  questions: Question[];
-}>();
+// const { questions } = defineProps<{
+//   questions: Question[];
+// }>();
 
 const store = useMainStore();
-const { openModal } = storeToRefs(store);
+const { openModal, surveyData } = storeToRefs(store);
 
-const surveyData = reactive<SurveyData>({
-  name: '',
-  email: '',
-  waiter: 'No lo sé',
-  comments: '',
-  questions,
-});
+// const surveyData = reactive<SurveyData>({
+//   name: '',
+//   email: '',
+//   waiter: 'No lo sé',
+//   comments: '',
+//   questions,
+// });
 
 const isLoading = ref(false);
 
@@ -32,10 +32,10 @@ async function sendSurvey(survey: SurveyData) {
   }
 }
 
-function formSubmit() {
+async function formSubmit() {
   isLoading.value = true;
 
-  sendSurvey(surveyData);
+  await sendSurvey(surveyData.value);
   setTimeout(() => {
     isLoading.value = false;
     openModal.value = true;

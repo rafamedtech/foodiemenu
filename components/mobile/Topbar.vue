@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-4 flex shadow border-b dark:border-base-100/10 justify-between bg-[#FEFEFE] dark:bg-dark-strong sticky top-0 text-center z-[999] lg:hidden"
+    class="p-4 flex shadow border-b dark:border-base-100/10 justify-between bg-dark-strong sticky top-0 text-center z-[999] lg:hidden"
   >
     <!-- Logo on mobile -->
     <Logo />

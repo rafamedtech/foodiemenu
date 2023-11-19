@@ -11,7 +11,7 @@
       <div
         class="bg-base-100 dark:bg-dark-medium transition-colors lg:relative px-4 lg:px-12 min-h-screen"
       >
-        <DarkLightBtn />
+        <!-- <DarkLightBtn /> -->
 
         <slot> </slot>
       </div>
