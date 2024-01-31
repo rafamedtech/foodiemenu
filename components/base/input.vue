@@ -22,6 +22,7 @@ const handleInputChange = (event: Event) => (event.target as HTMLInputElement).v
       :placeholder="placeholder"
       @input="$emit('update:modelValue', handleInputChange($event))"
       :type="type"
+      :required="isrequired"
       class="input input-bordered border-2 dark:text-base-100 bg-white border-base-200 dark:border-base-100/10 dark:bg-dark-strong focus:ring focus:ring-primary"
     />
   </div>

@@ -10,7 +10,12 @@ export default defineNuxtConfig({
     '@hypernym/nuxt-gsap',
     '@nuxtjs/supabase',
   ],
+
   css: ['@/assets/css/tailwind.css'],
+
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
 
   sanity: {
     projectId: 'voo7gajt',

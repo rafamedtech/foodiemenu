@@ -9,13 +9,6 @@ onMounted(() => {
 const { getQuestions } = store;
 
 getQuestions();
-
-definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
-});
 </script>
 
 <template>

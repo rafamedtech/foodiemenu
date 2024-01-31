@@ -5,23 +5,18 @@ const { category } = defineProps<{
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/menu/${category?.slug}`"
-    class="card w-full lg:w-[30rem] mx-auto relative h-52 lg:h-[20rem] lg:mb-12 shadow-xl group"
-  >
-    <figure class="h-full w-full overflow-hidden absolute rounded-2xl z-0">
+  <NuxtLink :to="{ path: `/menu/${category?.slug}` }" class="relative h-fit w-full text-center">
+    <section
+      class="rounded-b-box absolute bottom-0 z-10 flex h-1/3 w-full items-center bg-gradient-to-t from-black to-transparent pl-4"
+    >
+      <span class="font-montserrat text-3xl text-base-100 lg:text-3xl">{{ category?.name }}</span>
+    </section>
+    <figure class="card h-44 shadow-xl md:h-[25rem] lg:h-80">
       <img
         :src="category?.cover"
-        :alt="category?.name"
-        class="lg:group-hover:scale-[1.20] object-cover transition-all w-full h-full brightness-75 dark:brightness-50"
+        loading="lazy"
+        class="rounded-box h-full w-full object-cover object-center brightness-75"
       />
     </figure>
-    <div class="card-body p-0 z-10 bottom-6 absolute left-6">
-      <h2
-        class="card-title text-accent dark:text-primary text-2xl bg-accent/20 dark:bg-primary/10 shadow-sm w-fit p-2 rounded-lg"
-      >
-        {{ category?.name }}
-      </h2>
-    </div>
   </NuxtLink>
 </template>

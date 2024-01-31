@@ -1,5 +1,3 @@
-import type { SidebarLink } from '@/types/SidebarLink';
-
 export const sidebarLinks: SidebarLink[] = [
   {
     title: 'Menú',

@@ -21,7 +21,7 @@ const { title, description, cover } = defineProps<{
       class="absolute h-full w-full object-cover z-10 inset-0 brightness-50 rounded-lg"
     />
     <section
-      class="z-50 relative h-full p-4"
+      class="z-50 relative h-full py-4"
       :class="{ 'min-h-[10rem] grid place-content-center': cover }"
     >
       <h1

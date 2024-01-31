@@ -1,42 +1,22 @@
 <script setup lang="ts">
-import { allQuestions } from '@/sanity/queries';
-const { $toast } = useNuxtApp();
+import type { SurveyWithQuestions } from '@/types/Survey';
+
+const user = useSupabaseUser();
 
 const isLoading = ref(true);
 
-// const questions = ref<Question[]>([]);
-const { data: questions } = useSanityQuery<Question[]>(allQuestions);
+const { data: surveys } = await useFetch<SurveyWithQuestions[]>('/api/surveys');
 
-const { data: surveys, error } = await useFetch<Survey[]>('/api/surveys');
-if (error.value) {
-  $toast(error);
-}
-// console.log(surveys.value);
-
-const months = ref([
-  'Enero',
-  'Febrero',
-  'Marzo',
-  'Abril',
-  'Mayo',
-  'Junio',
-  'Julio',
-  'Agosto',
-  'Septiembre',
-  'Octubre',
-  'Noviembre',
-  'Diciembre',
-]);
+const { questionResults } = useSurveyDataAnalyzer(surveys.value);
+const waiterSummary = useCalculateWaiterSummary(surveys.value);
+const averageRating = useCalculateAverageRating(questionResults);
 
 onMounted(() => {
   isLoading.value = false;
 });
 
 definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
+  middleware: 'auth',
 });
 </script>
 
@@ -49,40 +29,80 @@ definePageMeta({
       />
     </template>
     <template #content>
-      <section class="flex flex-col lg:items-center pb-8 md:flex-row w-full justify-between">
-        <BaseSelect label="Selecciona un mes" :items="months" class="mb-4" />
-        <Stats :surveys="surveys" />
+      <section class="flex items-center w-full justify-center">
+        <!-- <BaseSelect label="Selecciona un mes" :items="months" class="mb-4" /> -->
+        <Stats :surveys="surveys" :rating="averageRating" />
       </section>
 
       <Divider />
 
-      <section class="mt-4">
-        <h2 class="text-xl font-bold text-accent dark:text-primary">
-          Resultados por pregunta (promedio)
-        </h2>
-        <section
-          class="flex flex-col gap-2 lg:gap-8 my-2 mt-8"
-          v-for="(question, index) in questions"
-        >
-          <h3 class="text-base dark:text-base-100">{{ question.text }}</h3>
-          <article class="flex gap-4 lg:gap-8">
-            <input
-              type="range"
-              min="0"
-              max="50"
-              :value="(index + 1) * 10"
-              disabled
-              class="range range-accent dark:range-primary"
-            />
-            <span class="text-2xl dark:text-base-100">{{ index + 1 }}</span>
-          </article>
+      <!-- Question results -->
+      <section class="flex flex-col md:flex-row gap-8 w-full md:px-2">
+        <section class="mt-4 md:mt-0 md:w-1/2">
+          <h2 class="text-2xl font-bold text-accent dark:text-primary">
+            Calificación promedio por pregunta
+          </h2>
+          <section
+            class="flex flex-col gap-2 lg:gap-8 my-2 mt-8"
+            v-for="question in questionResults"
+            :key="question.id"
+          >
+            <h3 class="text-base dark:text-base-100">{{ question.question }}</h3>
+            <article class="flex gap-4 lg:gap-8">
+              <input
+                type="range"
+                min="0"
+                max="50"
+                :value="question.averageRating * 10"
+                disabled
+                class="range range-accent dark:range-primary"
+              />
+              <span class="text-2xl dark:text-base-100">{{
+                question.averageRating.toFixed(1)
+              }}</span>
+            </article>
+          </section>
         </section>
 
-        <Divider />
+        <Divider class="lg:hidden my-0" />
 
-        <NuxtLink to="/admin/encuestas/preguntas" class="flex justify-center">
-          <BaseButton type="primary">Administrar preguntas</BaseButton>
-        </NuxtLink>
+        <!-- Waiter results -->
+        <section class="md:w-1/2 mb-4 md:mb-0">
+          <h2 class="text-2xl font-bold text-accent dark:text-primary">
+            Calificación promedio por mesero
+          </h2>
+          <section
+            class="flex flex-col gap-2 lg:gap-8 my-2 mt-8"
+            v-for="{ waiter, count, averageRating } in waiterSummary"
+          >
+            <article class="text-base dark:text-base-100 flex justify-between gap-2">
+              <p>{{ waiter }}</p>
+              <span class="badge">{{ count }} recibidas</span>
+            </article>
+            <article class="flex gap-4 lg:gap-8">
+              <input
+                type="range"
+                min="0"
+                max="50"
+                :value="averageRating * 10"
+                disabled
+                class="range range-accent dark:range-primary"
+              />
+              <span class="text-2xl dark:text-base-100">{{ averageRating.toFixed(1) }}</span>
+            </article>
+          </section>
+        </section>
+      </section>
+
+      <Divider />
+
+      <!-- All surveys -->
+      <section class="mt-4">
+        <h2 class="text-2xl font-bold text-accent dark:text-primary">Todas las encuestas</h2>
+
+        <section class="md:w-1/2 md:mx-auto">
+          <SurveyCard v-for="survey in surveys" :key="survey.id" :survey="survey" />
+        </section>
       </section>
     </template>
   </MainSection>

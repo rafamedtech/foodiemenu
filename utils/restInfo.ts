@@ -1,7 +1,9 @@
+import logo from '@/assets/img/logo-new.svg';
+
 export const restInfo = {
   name: 'Brunette',
   description: 'kitchen and drinks',
-  icon: 'ph:book-open-text',
+  logo,
   address: 'Blvd Real del Mar 1632, Real Del Mar, Tijuana, Mexico, 22563',
   phone: '664 974 6842',
   schedule: [

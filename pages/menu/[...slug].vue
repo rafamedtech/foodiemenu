@@ -2,8 +2,6 @@
 import noItems from '@/assets/img/no-items.svg';
 import { currentCategory } from '@/sanity/queries';
 
-const { $gsap }: any = useNuxtApp();
-
 const store = useMainStore();
 const { isLoading, showScrollToTop } = storeToRefs(store);
 
@@ -34,20 +32,6 @@ const sanity = useSanity();
 const { data: category } = await useAsyncData(`${slug}`, () =>
   sanity.fetch<Category | null>(currentCategory, { slug })
 );
-
-// const gridSize = computed(() => {
-//   return {
-//     'lg:grid-cols-1': category.value?.sections.length && category.value?.sections.length < 2,
-//     'lg:grid-cols-2': category.value?.sections.length && category.value?.sections.length > 1,
-//   };
-// });
-
-definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
-});
 </script>
 
 <template>

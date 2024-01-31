@@ -1,31 +1,17 @@
 <script setup lang="ts">
 import { waitersList } from '@/utils/surveyInfo';
-
-// const { questions } = defineProps<{
-//   questions: Question[];
-// }>();
+import type { SurveyOutline } from '@/types/Survey';
 
 const store = useMainStore();
 const { openModal, surveyData } = storeToRefs(store);
 
-// const surveyData = reactive<SurveyData>({
-//   name: '',
-//   email: '',
-//   waiter: 'No lo sé',
-//   comments: '',
-//   questions,
-// });
-
 const isLoading = ref(false);
 
-async function sendSurvey(survey: SurveyData) {
+async function sendSurvey(survey: SurveyOutline) {
   try {
     await $fetch(`/api/survey`, {
       method: 'POST',
-      // Automatically stringified by ofetch
-      body: {
-        survey,
-      },
+      body: { survey },
     });
   } catch (error) {
     console.error(error);
@@ -36,10 +22,11 @@ async function formSubmit() {
   isLoading.value = true;
 
   await sendSurvey(surveyData.value);
+
   setTimeout(() => {
     isLoading.value = false;
     openModal.value = true;
-  }, 2000);
+  }, 1000);
 }
 </script>
 
@@ -47,7 +34,7 @@ async function formSubmit() {
   <form class="flex flex-col dark:text-base-100 max-w-md mx-auto" @submit.prevent="formSubmit">
     <article class="flex flex-col gap-4">
       <BaseInput label="Tu nombre (opcional)" v-model="surveyData.name" />
-      <BaseInput label="Correo electrónico (opcional)" v-model="surveyData.email" />
+      <BaseInput label="Correo electrónico" v-model="surveyData.email" isrequired />
       <BaseSelect label="Mesero que le atendió" :items="waitersList" v-model="surveyData.waiter" />
     </article>
 

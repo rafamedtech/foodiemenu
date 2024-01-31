@@ -6,17 +6,8 @@ const { isLoading } = storeToRefs(store);
 
 const { data: events } = useSanityQuery<Evento[]>(allEvents);
 
-const { myAnimations } = useAnimations();
-
 onMounted(() => {
   isLoading.value = false;
-  // myAnimations();
-});
-definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
 });
 </script>
 

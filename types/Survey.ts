@@ -1,14 +1,14 @@
-type Question = {
-  id?: number;
-  text: string;
-  rating?: number | null;
+import type { Survey, Question } from '@prisma/client';
+
+export type SurveyWithQuestions = Survey & {
+  questions: Question[];
 };
 
-interface Survey {
+export interface SurveyOutline {
   name: string;
   email: string;
   waiter: string;
-  questions?: Question[] | null;
   comments: string;
   new: boolean;
+  questions?: Question[];
 }

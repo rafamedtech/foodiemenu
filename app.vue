@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const store = useMainStore();
-const { openModal } = storeToRefs(store);
+const { openModal, eventModal } = storeToRefs(store);
 </script>
 
 <template>
@@ -9,5 +9,6 @@ const { openModal } = storeToRefs(store);
       <NuxtPage />
     </NuxtLayout>
     <Modal v-if="openModal" />
+    <EventModal v-if="eventModal" />
   </section>
 </template>

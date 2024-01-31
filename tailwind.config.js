@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ["'Montserrat'", 'sans-serif'],
+      },
       container: {
         center: true,
         screens: {
@@ -43,7 +46,7 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: '#4ade80',
+          primary: '#00673c',
           secondary: '#3b82f6',
           accent: '#22c55e',
           neutral: '#d1d5db',

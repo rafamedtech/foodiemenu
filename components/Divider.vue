@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  sidebar: boolean;
+  sidebar?: boolean;
 }>();
 </script>
 

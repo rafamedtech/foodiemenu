@@ -2,6 +2,18 @@
 import { sidebarLinks } from '@/utils/sidebarLinks';
 
 const links: SidebarLink[] = sidebarLinks;
+
+const supabase = useSupabaseClient();
+
+async function userLogout() {
+  try {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) throw error;
+  } catch (error: any) {
+    console.log(error.message);
+  }
+}
 </script>
 
 <template>
@@ -13,7 +25,7 @@ const links: SidebarLink[] = sidebarLinks;
 
       <Divider sidebar />
 
-      <ul class="flex flex-col gap-2 mt-4">
+      <ul class="flex flex-col gap-2">
         <li v-for="{ href, icon, title } in links" :key="title">
           <NuxtLink
             :to="href"
@@ -28,6 +40,7 @@ const links: SidebarLink[] = sidebarLinks;
         <Divider sidebar />
 
         <li><DarkLightBtn /></li>
+        <li><button class="btn btn-primary" @click="userLogout">Logout</button></li>
       </ul>
     </li>
   </ul>

@@ -9,13 +9,6 @@ const { name, description, address, phone, schedule, socials } = restInfo;
 onMounted(() => {
   isLoading.value = false;
 });
-
-definePageMeta({
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
-});
 </script>
 
 <template>
