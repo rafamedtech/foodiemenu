@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxtjs/sanity',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    '@hypernym/nuxt-gsap',
     '@nuxtjs/supabase',
   ],
 
